@@ -30,5 +30,7 @@ public class Account {
 	 * 账户状态 0 新建 1 使用中 2 停用
 	 */
 	public String accountStatus;
+	
+	public String userAgent;
 
 }

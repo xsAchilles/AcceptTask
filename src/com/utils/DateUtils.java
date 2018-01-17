@@ -16,6 +16,27 @@ public class DateUtils {
 		return false;
 	}
 	
+	public static String getTodayDateWithoutHMS() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
+		return format.format(c.getTime());
+	}
+	
+	public static String getTomorrowDateWithoutHMS() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 1);
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
+		return format.format(c.getTime());
+	}
+	
 	public static String getNowDate(){
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar c = Calendar.getInstance();

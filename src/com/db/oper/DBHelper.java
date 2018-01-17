@@ -62,6 +62,21 @@ public class DBHelper {
 		return mongoCursor;
 	}
 
+//	public MongoCursor<Document> getCursorsByCondition(MongoCollection<Document> collection) {
+//		BasicDBObject queryObj = new BasicDBObject();
+////		BasicDBObject startobj = new BasicDBObject(QueryOperators.GT, "2017/11/18 00:00:00");
+////		BasicDBObject endObj = new BasicDBObject(QueryOperators.LT, "2017/11/18 19:00:00");
+////		BasicDBObject andObj = new BasicDBObject(QueryOperators.AND, Arrays.asList(startobj, endObj));
+//		
+//		DBObject obj = BasicDBObjectBuilder.start(QueryOperators.GTE, "2017/11/18 00:00:00").add(QueryOperators.LT,"2017/11/18 19:00:00").get();  
+//		queryObj.append("accepterName", "Ö£Á®");
+//		queryObj.append("message", "²Ù×÷³É¹¦");
+//		queryObj.append("tryDateTime", obj);
+//		FindIterable<Document> findIterable = collection.find(queryObj);
+//		MongoCursor<Document> mongoCursor = findIterable.iterator();
+//		return mongoCursor;
+//	}
+
 	public void insert(MongoCollection<Document> collection, List<Document> documents) {
 		collection.insertMany(documents);
 	}

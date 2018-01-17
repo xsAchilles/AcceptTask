@@ -14,6 +14,8 @@ import com.task.taskconfig.Config;
 import com.utils.ToolUtils;
 
 public class TaskConnection {
+	
+	private String userAgent;
 
 	private String url;
 
@@ -23,6 +25,8 @@ public class TaskConnection {
 
 	public static class Builder {
 
+		private String userAgent;
+		
 		private String url;
 
 		private Map<String, Object> params;
@@ -43,10 +47,16 @@ public class TaskConnection {
 			this.cookieParams = cookieParams;
 			return this;
 		}
+		
+		public Builder setUserAgent(String userAgent){
+			this.userAgent = userAgent;
+			return this;
+		}
 
 		public TaskConnection build() {
 			TaskConnection taskConnection = new TaskConnection();
 			taskConnection.url = this.url;
+			taskConnection.userAgent = this.userAgent;
 			taskConnection.params = this.params;
 			taskConnection.cookieParams = this.cookieParams;
 			return taskConnection;
@@ -76,7 +86,7 @@ public class TaskConnection {
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			conn.setDoOutput(true);
-			conn.setRequestProperty("User-agent", Config.USER_AGENT);
+			conn.setRequestProperty("User-agent", this.userAgent);
 			conn.setUseCaches(false);
 			conn.setConnectTimeout(Config.DEF_CONN_TIMEOUT);
 			conn.setReadTimeout(Config.DEF_READ_TIMEOUT);
